@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col antialiased" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
+      <body className="min-h-screen flex flex-col antialiased pb-20 lg:pb-0" style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>
         <CartProvider>
           <Navigation />
           <CartDrawer />
