@@ -291,8 +291,8 @@ export const restaurantInfo = {
   tagline: 'Nel cuore della Darsena di Savona, il mare è nel piatto.',
   address: 'Via Antonio Baglietto 8R, Savona (Darsena), Italy',
   phone: '+39 393 330 4614',
-  email: 'info@ziopesce.it',
-  website: 'https://ziopesce.it',
+  email: 'info@zio-pesce-website.vercel.app',
+  website: 'https://zio-pesce-website.vercel.app',
   hours: {
     lunch: '12:00 – 15:00',
     dinner: '19:00 – 23:00',

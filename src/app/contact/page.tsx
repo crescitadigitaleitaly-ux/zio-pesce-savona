@@ -148,11 +148,11 @@ export default function ContactPage() {
                   >
                     Email
                   </h3>
-                  <a
-                    href="mailto:info@ziopesce.it"
-                    className="text-cream-100/60 hover:text-gold-400 transition-colors"
+                  <a 
+                    href="mailto:info@zio-pesce-website.vercel.app" 
+                    className="hover:text-gold-400 transition-colors duration-200"
                   >
-                    info@ziopesce.it
+                    info@zio-pesce-website.vercel.app
                   </a>
                 </div>
               </div>
