@@ -10,13 +10,11 @@ export default function CartDrawer() {
   return (
     <>
       <div 
-        className="fixed inset-0 bg-black/60 z-50" 
+        className="fixed inset-0 bg-black/60 z-50 transition-opacity" 
         onClick={() => setIsCartOpen(false)} 
-        style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
       />
       <div 
-        className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-ocean-900 z-50 flex flex-col shadow-2xl"
-        style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
+        className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-ocean-900 z-50 flex flex-col shadow-2xl transition-transform"
       >
         <div className="flex items-center justify-between p-6 border-b border-gold-500/10">
           <h2 className="font-serif text-xl text-gold-500">Il tuo ordine</h2>
