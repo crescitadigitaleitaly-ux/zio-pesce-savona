@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 interface MenuItemImageProps {
   src: string;
@@ -7,28 +7,21 @@ interface MenuItemImageProps {
   className?: string;
 }
 
+/**
+ * Renders a dish image with a graceful fallback.
+ *
+ * Intentionally has NO opacity/transform transitions on the <img>. An animated
+ * image promotes itself to a GPU compositing layer, and on some Android GPUs a
+ * layer that is mid-transition while the page scrolls gets mis-rasterized into
+ * horizontal RGB "scan-line" tearing. Keeping the image as a plain, static
+ * element (with a solid background behind it while it decodes) avoids that.
+ */
 export default function MenuItemImage({ src, alt, className = '' }: MenuItemImageProps) {
-  const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  // Fix hydration race: if the browser finished loading the image before React
-  // attached the onLoad handler (common on fast/cached responses), the load
-  // event never reaches us and the placeholder would stay stuck. Re-sync from
-  // the DOM element's own state on mount.
-  useEffect(() => {
-    const img = imgRef.current;
-    if (!img) return;
-    if (img.complete) {
-      if (img.naturalWidth > 0) setLoaded(true);
-      else setError(true);
-    }
-  }, [src]);
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
-      {/* Placeholder shown while loading and whenever the image is unavailable */}
-      {(!loaded || error) && (
+    <div className={`relative overflow-hidden bg-ocean-800 ${className}`}>
+      {error ? (
         <div className="img-placeholder absolute inset-0">
           <div className="text-center p-4">
             <svg className="w-8 h-8 mx-auto mb-2 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
@@ -37,16 +30,14 @@ export default function MenuItemImage({ src, alt, className = '' }: MenuItemImag
             <span className="text-[0.65rem] opacity-60 tracking-wider">{alt}</span>
           </div>
         </div>
-      )}
-      {!error && (
+      ) : (
         <img
-          ref={imgRef}
           src={src}
           alt={alt}
           loading="lazy"
-          onLoad={() => setLoaded(true)}
+          decoding="async"
           onError={() => setError(true)}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          className="w-full h-full object-cover"
         />
       )}
     </div>

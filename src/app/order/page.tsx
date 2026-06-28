@@ -207,8 +207,8 @@ export default function OrderPage() {
           </div>
 
           {/* Right: Cart sidebar */}
-          <div className="lg:col-span-1">
-            <div className="lg:sticky lg:top-24">
+          <div className="lg:col-span-1" id="checkout">
+            <div className="lg:sticky lg:top-24 scroll-mt-24">
               <div className="glass-card rounded-lg p-6">
                 <h2 className="text-xl text-gold-500 mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
                   Il Tuo Carrello

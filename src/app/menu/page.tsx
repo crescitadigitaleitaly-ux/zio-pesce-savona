@@ -249,18 +249,19 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* Cart floating indicator */}
+      {/* Cart floating indicator — opens the cart/checkout drawer directly */}
       {cart.totalItems > 0 && (
-        <Link
-          href="/order"
-          className="fixed bottom-24 right-5 lg:bottom-6 lg:right-6 bg-gold-500 text-ocean-950 px-5 py-3 rounded-full shadow-lg hover:bg-gold-400 transition-colors flex items-center gap-2 z-50"
+        <button
+          onClick={() => cart.setIsCartOpen(true)}
+          aria-label="Vai al carrello"
+          className="fixed bottom-24 right-5 lg:bottom-6 lg:right-6 bg-gold-500 text-ocean-950 pl-5 pr-6 py-3.5 rounded-full shadow-lg hover:bg-gold-400 transition-colors flex items-center gap-2.5 z-50"
           style={{ fontFamily: 'var(--font-playfair)' }}
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-5.98.572m5.98-.572h9.75m-9.75 0l-.607-2.28M16.5 14.25a3 3 0 015.98.572m-5.98-.572l.607-2.28m0 0l1.014-3.813A.75.75 0 0113.607 8H7.488a.75.75 0 00-.725.553L5.893 11.97" />
           </svg>
-          <span className="font-semibold">{cart.totalItems}</span>
-        </Link>
+          <span className="font-semibold">Carrello · {cart.totalItems}</span>
+        </button>
       )}
     </main>
   );

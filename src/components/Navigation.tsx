@@ -117,8 +117,8 @@ export default function Navigation() {
         <Link href="/reservations" className="flex-1 btn-gold text-center text-xs py-3">
           Prenota Tavolo
         </Link>
-        <Link href="/order" className="flex-1 btn-outline text-center text-xs py-3">
-          Ordina Asporto
+        <Link href={totalItems > 0 ? '/order#checkout' : '/order'} className="flex-1 btn-outline text-center text-xs py-3">
+          {totalItems > 0 ? `Ordine · ${totalItems}` : 'Ordina Asporto'}
         </Link>
       </div>
     </>

@@ -58,13 +58,18 @@ body {
 .menu-card {
   background: linear-gradient(135deg, var(--color-ocean-800), var(--color-ocean-900));
   border: 1px solid rgba(201, 169, 110, 0.15);
-  transition: all 0.3s ease;
+  /* Only transition cheap properties (not `all`/transform) so scrolling the
+     list does not trigger layer repaints that can tear on weak mobile GPUs. */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.menu-card:hover {
-  border-color: rgba(201, 169, 110, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+/* Hover lift only on devices with a real pointer (desktop) — never on touch,
+   where it would create needless compositing layers during scroll. */
+@media (hover: hover) and (pointer: fine) {
+  .menu-card:hover {
+    border-color: rgba(201, 169, 110, 0.4);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
 }
 
 .btn-gold {

@@ -77,7 +77,7 @@ export default function CartDrawer() {
               <span className="font-serif text-xl text-gold-500">&euro;{subtotal.toFixed(2)}</span>
             </div>
             <Link
-              href="/order"
+              href="/order#checkout"
               onClick={() => setIsCartOpen(false)}
               className="btn-gold w-full block text-center"
             >
