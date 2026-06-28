@@ -21,7 +21,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-ocean-950/90 backdrop-blur-md border-b border-gold-500/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-ocean-950 border-b border-gold-500/10 shadow-lg shadow-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-3 group">
@@ -49,7 +49,7 @@ export default function Navigation() {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsCartOpen(true)}
-                className="relative p-2 text-cream-100/70 hover:text-gold-500 transition-colors"
+                className="relative p-2.5 text-cream-100/70 hover:text-gold-500 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Apri carrello"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -62,12 +62,14 @@ export default function Navigation() {
                 )}
               </button>
 
-              <Link href="/reservations" className="hidden sm:block btn-gold text-xs py-2.5 px-5">
-                Prenota
-              </Link>
+              <span className="hidden lg:block">
+                <Link href="/reservations" className="btn-gold text-xs py-2.5 px-5">
+                  Prenota
+                </Link>
+              </span>
 
               <button
-                className="lg:hidden p-2 text-cream-100/70"
+                className="lg:hidden p-2.5 -mr-1 text-cream-100/70 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Menu di navigazione"
               >
@@ -84,7 +86,7 @@ export default function Navigation() {
         </div>
 
         {mobileOpen && (
-          <div className="lg:hidden bg-ocean-950/95 backdrop-blur-lg border-t border-gold-500/10">
+          <div className="lg:hidden bg-ocean-950 border-t border-gold-500/10">
             <div className="px-4 py-6 space-y-4">
               {navLinks.map(link => (
                 <Link
@@ -111,7 +113,7 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile sticky CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-ocean-950/95 backdrop-blur-md border-t border-gold-500/10 px-4 py-3 flex gap-3">
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-ocean-950 border-t border-gold-500/10 px-4 py-3 flex gap-3 shadow-[0_-4px_20px_rgba(0,0,0,0.3)]">
         <Link href="/reservations" className="flex-1 btn-gold text-center text-xs py-3">
           Prenota Tavolo
         </Link>

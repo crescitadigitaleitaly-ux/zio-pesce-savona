@@ -114,10 +114,10 @@ export default function MenuPage() {
       {!searchQuery && (
         <section className="pb-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-2 pb-2">
+            <div className="flex flex-nowrap overflow-x-auto scrollbar-hide lg:flex-wrap lg:justify-center lg:overflow-visible gap-2 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
               <button
                 onClick={() => setActiveCategory(null)}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`flex-shrink-0 px-4 min-h-[44px] rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
                   activeCategory === null
                     ? 'bg-gold-500 text-ocean-950'
                     : 'border border-gold-500/20 text-cream-100/70 hover:border-gold-500/50 hover:text-cream-100'
@@ -129,7 +129,7 @@ export default function MenuPage() {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                  className={`flex-shrink-0 px-4 min-h-[44px] rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
                     activeCategory === cat.id
                       ? 'bg-gold-500 text-ocean-950'
                       : 'border border-gold-500/20 text-cream-100/70 hover:border-gold-500/50 hover:text-cream-100'
@@ -253,7 +253,7 @@ export default function MenuPage() {
       {cart.totalItems > 0 && (
         <Link
           href="/order"
-          className="fixed bottom-6 right-6 bg-gold-500 text-ocean-950 px-5 py-3 rounded-full shadow-lg hover:bg-gold-400 transition-colors flex items-center gap-2 z-50"
+          className="fixed bottom-24 right-5 lg:bottom-6 lg:right-6 bg-gold-500 text-ocean-950 px-5 py-3 rounded-full shadow-lg hover:bg-gold-400 transition-colors flex items-center gap-2 z-50"
           style={{ fontFamily: 'var(--font-playfair)' }}
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -392,7 +392,7 @@ export default function ContactPage() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contattaci su WhatsApp"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+        className="fixed bottom-24 right-5 lg:bottom-6 lg:right-6 z-40 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
       >
         <svg
           className="w-7 h-7 text-white"
