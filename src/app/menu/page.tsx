@@ -1,16 +1,9 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { menuCategories, type MenuCategory } from '@/data/menu';
-import MenuItemImage from '@/components/MenuItemImage';
+import { MenuCard } from '@/components/MenuCard';
 import { useCart } from '@/context/CartContext';
-import Link from 'next/link';
-
-const dietaryLabels: Record<string, { label: string; color: string }> = {
-  vegetarian: { label: 'Vegetariano', color: 'bg-green-700/60 text-green-200' },
-  vegan: { label: 'Vegano', color: 'bg-emerald-700/60 text-emerald-200' },
-  'gluten-free': { label: 'Senza Glutine', color: 'bg-amber-700/60 text-amber-200' },
-};
 
 export default function MenuPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,13 +11,13 @@ export default function MenuPage() {
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
   const cart = useCart();
 
-  const handleAddToCart = (item: MenuCategory['items'][number]) => {
+  const handleAddToCart = useCallback((item: MenuCategory['items'][number]) => {
     cart.addItem(item);
     setAddedItems((prev) => ({ ...prev, [item.id]: true }));
     setTimeout(() => {
       setAddedItems((prev) => ({ ...prev, [item.id]: false }));
     }, 2000);
-  };
+  }, [cart]);
 
   const filteredCategories = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
@@ -168,78 +161,12 @@ export default function MenuPage() {
                   {/* Items Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {category.items.map((item) => (
-                      <div
+                      <MenuCard
                         key={item.id}
-                        className="menu-card rounded overflow-hidden group"
-                      >
-                        {/* Image */}
-                        <MenuItemImage
-                          src={item.image}
-                          alt={item.alt}
-                          className="w-full h-48 object-cover"
-                        />
-
-                        {/* Content */}
-                        <div className="p-5">
-                          <div className="flex items-start justify-between gap-3 mb-2">
-                            <h3
-                              className="text-lg text-cream-100"
-                              style={{ fontFamily: 'var(--font-playfair)' }}
-                            >
-                              {item.name}
-                            </h3>
-                            <span
-                              className="text-gold-500 font-semibold flex-shrink-0"
-                              style={{ fontFamily: 'var(--font-playfair)' }}
-                            >
-                              {item.price}
-                            </span>
-                          </div>
-
-                          <p className="text-sm text-cream-100/60 mb-3 line-clamp-2">
-                            {item.description}
-                          </p>
-
-                          {/* Dietary Badges */}
-                          {item.dietary && item.dietary.length > 0 && (
-                            <div className="flex flex-wrap gap-1.5 mb-3">
-                              {item.dietary.map((tag) => {
-                                const badge = dietaryLabels[tag];
-                                return badge ? (
-                                  <span
-                                    key={tag}
-                                    className={`text-[0.65rem] px-2 py-0.5 rounded-full ${badge.color}`}
-                                  >
-                                    {badge.label}
-                                  </span>
-                                ) : null;
-                              })}
-                            </div>
-                          )}
-
-                          {/* Add to Cart Button */}
-                          <button
-                            onClick={() => handleAddToCart(item)}
-                            disabled={addedItems[item.id]}
-                            className={`w-full py-2 rounded text-sm font-medium transition-all duration-300 ${
-                              addedItems[item.id]
-                                ? 'bg-green-600/80 text-white cursor-default'
-                                : 'bg-gold-500/10 border border-gold-500/30 text-gold-500 hover:bg-gold-500 hover:text-ocean-950'
-                            }`}
-                          >
-                            {addedItems[item.id] ? (
-                              <span className="flex items-center justify-center gap-1.5">
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                                Aggiunto
-                              </span>
-                            ) : (
-                              'Aggiungi'
-                            )}
-                          </button>
-                        </div>
-                      </div>
+                        item={item}
+                        isAdded={!!addedItems[item.id]}
+                        onAddToCart={handleAddToCart}
+                      />
                     ))}
                   </div>
                 </div>
