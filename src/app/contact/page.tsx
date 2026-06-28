@@ -149,10 +149,10 @@ export default function ContactPage() {
                     Email
                   </h3>
                   <a 
-                    href="mailto:info@zio-pesce-website.vercel.app" 
+                    href="mailto:info@crescitadigitaleitalia.com" 
                     className="hover:text-gold-400 transition-colors duration-200"
                   >
-                    info@zio-pesce-website.vercel.app
+                    info@crescitadigitaleitalia.com
                   </a>
                 </div>
               </div>

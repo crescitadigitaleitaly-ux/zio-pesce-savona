@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zio-pesce-website.vercel.app'),
+  metadataBase: new URL('https://ziopesce.crescitadigitaleitalia.com'),
   title: {
     default: 'Zio Pesce | Ristorante di Pesce e Pizzeria – Savona Darsena',
     template: '%s | Zio Pesce Savona',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Zio Pesce | Ristorante di Pesce e Pizzeria – Savona',
     description: 'Nel cuore della Darsena di Savona, il mare è nel piatto. Pesce fresco, pizza gourmet al nero di seppia e accoglienza di casa dal 2015.',
-    url: 'https://zio-pesce-website.vercel.app',
+    url: 'https://ziopesce.crescitadigitaleitalia.com',
     siteName: 'Zio Pesce',
     locale: 'it_IT',
     type: 'website',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description: 'Pesce fresco, pizza gourmet al nero di seppia nella Darsena di Savona.',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://zio-pesce-website.vercel.app' },
+  alternates: { canonical: 'https://ziopesce.crescitadigitaleitalia.com' },
 };
 
 const jsonLd = {
@@ -50,9 +50,9 @@ const jsonLd = {
   '@type': 'Restaurant',
   name: 'Zio Pesce',
   alternateName: 'Zio Pesce – Ristorante e Pizzeria',
-  url: 'https://zio-pesce-website.vercel.app',
+  url: 'https://ziopesce.crescitadigitaleitalia.com',
   telephone: '+393933304614',
-  email: 'info@zio-pesce-website.vercel.app',
+  email: 'info@crescitadigitaleitalia.com',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Via Antonio Baglietto 8R',
@@ -90,7 +90,7 @@ const jsonLd = {
   },
   foundingDate: '2015',
   acceptsReservations: true,
-  hasMenu: 'https://zio-pesce-website.vercel.app/menu',
+  hasMenu: 'https://ziopesce.crescitadigitaleitalia.com/menu',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
