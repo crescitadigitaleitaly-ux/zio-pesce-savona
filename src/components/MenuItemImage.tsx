@@ -20,7 +20,10 @@ export default function MenuItemImage({ src, alt, className = '' }: MenuItemImag
   const [error, setError] = useState(false);
 
   return (
-    <div className={`relative overflow-hidden bg-ocean-800 ${className}`}>
+    <div 
+      className={`relative overflow-hidden bg-ocean-800 ${className}`}
+      style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
+    >
       {error ? (
         <div className="img-placeholder absolute inset-0">
           <div className="text-center p-4">
@@ -38,6 +41,7 @@ export default function MenuItemImage({ src, alt, className = '' }: MenuItemImag
           decoding="async"
           onError={() => setError(true)}
           className="w-full h-full object-cover"
+          style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
         />
       )}
     </div>
