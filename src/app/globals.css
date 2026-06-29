@@ -82,7 +82,9 @@ body {
   text-transform: uppercase;
   font-size: 0.8rem;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   cursor: pointer;
   border: none;
@@ -104,7 +106,9 @@ body {
   text-transform: uppercase;
   font-size: 0.8rem;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   cursor: pointer;
   background: transparent;
@@ -166,6 +170,11 @@ select:focus-visible {
 
 input::placeholder, textarea::placeholder {
   color: rgba(250, 246, 238, 0.4);
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%) skewX(-12deg); }
+  100% { transform: translateX(150%) skewX(-12deg); }
 }
 
 @keyframes fadeInUp {

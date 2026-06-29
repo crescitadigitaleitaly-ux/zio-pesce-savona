@@ -301,8 +301,8 @@ export const restaurantInfo = {
   founded: '2015',
   founders: 'Andrea Colombo e Gigliola Peroni',
   social: {
-    instagram: 'https://instagram.com/ziopesce_savona',
-    facebook: 'https://facebook.com/ziopescesavona',
+    instagram: 'https://www.instagram.com/ziopescesavonadarsena/',
+    facebook: 'https://www.facebook.com/ziopescesdarsenasavona/?locale=it_IT',
   },
   reviews: {
     googleRating: 4.6,
