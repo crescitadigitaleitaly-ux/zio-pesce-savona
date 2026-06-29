@@ -304,6 +304,11 @@ export const restaurantInfo = {
     instagram: 'https://instagram.com/ziopesce_savona',
     facebook: 'https://facebook.com/ziopescesavona',
   },
+  reviews: {
+    googleRating: 4.6,
+    googleCount: 324,
+    googleLink: 'https://www.google.com/search?q=Zio+Pesce+Savona#lrd=0x12d49220f0c0e0a7:0x0,1,,,',
+  },
   coordinates: {
     lat: 44.3092,
     lng: 8.4811,

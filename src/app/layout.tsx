@@ -5,6 +5,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import BackToTop from '@/components/BackToTop';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { CartProvider } from '@/context/CartContext';
 
 const inter = Inter({
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main className="flex-1 pt-20">{children}</main>
           <Footer />
           <BackToTop />
+          <FloatingWhatsApp />
         </CartProvider>
       </body>
     </html>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { menuCategories } from '@/data/menu';
 import MenuItemImage from '@/components/MenuItemImage';
 import Testimonials from '@/components/Testimonials';
+import SocialBanner from '@/components/SocialBanner';
 
 /* ── Featured dish IDs to display on the homepage ── */
 const featuredDishIds = [
@@ -426,6 +427,11 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════
+          7b. SOCIAL MEDIA BANNER
+      ═══════════════════════════════════════════════════ */}
+      <SocialBanner />
 
       {/* ═══════════════════════════════════════════════════
           8. GOOGLE MAPS & CONTACT INFO
